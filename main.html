@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyörä Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="assets/logo.png">
+        <span class="menu-toggle" onclick="toggleMenu()">☰</span> <!-- Moved outside of <ul> -->
+        <nav>
+            <ul>
+                <li><a href="#" data-section="koti">Koti</a></li>
+                <li><a href="#" data-section="tuotteet">Tuotteet</a></li>
+                <li><a href="#" data-section="kirjaudu">Kirjaudu</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="koti">
+        <h2>Kotisivut</h2>
+        <h1>Hei</h1>
+    </section>
+
+    <section id="tuotteet">
+        <h2>Categories</h2>
+        <ul id="categoryList">
+            <li data-category="bicycles">Bicycles</li>
+            <li data-category="skiing">Skiing</li>
+            <li data-category="forestry">Forestry Tools</li>
+            <li data-category="summer">Summer Equipment</li>
+        </ul>
+        
+        <h2>Products</h2>
+        <ul id="productList">
+            <!-- Products will be added dynamically here -->
+        </ul>
+    </section>
+    
+    <section id="kirjaudu">
+        <h2>Admin Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </section>
+
+    <section id="lisaa" style="display:none;">
+        <h2>Add Product</h2>
+        <input type="text" id="productName" placeholder="Product Name">
+
+        <select id="productCategory">
+            <option value="bicycles">Bicycles</option>
+            <option value="skiing">Skiing</option>
+            <option value="forestry">Forestry Tools</option>
+            <option value="summer">Summer Equipment</option>
+        </select>
+        
+        <button onclick="addProduct()">Add</button>
+        <ul id="productList"></ul>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
