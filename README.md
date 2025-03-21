@@ -5,5 +5,5 @@ Tämä nettisivu on projekti Pyörätaikureille.
 
 ## Tekijä
 
-- [@octokatherine](https://github.com/JaakkoAromaki)
+- [@JaakkoAromäki](https://github.com/JaakkoAromaki)
 
