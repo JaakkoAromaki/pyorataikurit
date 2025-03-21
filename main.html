@@ -3,64 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pyörä Shop</title>
+    <title>Pyörätaikurit</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <img src="logo.png">
-        <span class="menu-toggle" onclick="toggleMenu()">☰</span> <!-- Moved outside of <ul> -->
+        <img src="assets/logo.png">
+        <span class="menu-toggle" onclick="toggleMenu()">☰</span>
         <nav>
             <ul>
-                <li><a href="#" data-section="koti">Koti</a></li>
-                <li><a href="#" data-section="tuotteet">Tuotteet</a></li>
-                <li><a href="#" data-section="kirjaudu">Kirjaudu</a></li>
+                <li><a href="#" data-section="koti" onclick="showSection('koti')">Koti</a></li>
+                <li><a href="#" data-section="tuotteet" onclick="showSection('tuotteet')">Tuotteet</a></li>
+                <li><a href="#" data-section="kirjaudu" onclick="showSection('kirjaudu')">Kirjaudu</a></li>
+                <button id="adminPanelBtn" style="display: none;" onclick="showAdmin()">Hallintopaneeli</button>
             </ul>
         </nav>
     </header>
 
+    <!-- Home Section -->
     <section id="koti">
         <h2>Kotisivut</h2>
         <h1>Hei</h1>
     </section>
 
+    <!-- Products Section with Categories -->
     <section id="tuotteet">
-        <h2>Categories</h2>
-        <ul id="categoryList">
-            <li data-category="bicycles">Bicycles</li>
-            <li data-category="skiing">Skiing</li>
-            <li data-category="forestry">Forestry Tools</li>
-            <li data-category="summer">Summer Equipment</li>
-        </ul>
-        
-        <h2>Products</h2>
-        <ul id="productList">
-            <!-- Products will be added dynamically here -->
-        </ul>
+        <h2 class="kategoriaH">Kategoriat</h2>
+        <ul id="categoryList"></ul>
+
+        <h2>Tuotteet</h2>
+        <div id="mainContent">
+            <div id="productContainer">
+                <ul id="productList"></ul>
+            </div>
+        </div>
     </section>
-    
+
+    <!-- Login Section -->
     <section id="kirjaudu">
-        <h2>Admin Login</h2>
+        <h2>Admin kirjautuminen</h2>
         <input type="text" id="username" placeholder="Username">
         <input type="password" id="password" placeholder="Password">
         <button onclick="login()">Login</button>
     </section>
 
-    <section id="lisaa" style="display:none;">
-        <h2>Add Product</h2>
-        <input type="text" id="productName" placeholder="Product Name">
+    <!-- Admin Panel -->
+    <section id="adminPanel" style="display: none;">
+        <h2>Admin Panel</h2>
 
-        <select id="productCategory">
-            <option value="bicycles">Bicycles</option>
-            <option value="skiing">Skiing</option>
-            <option value="forestry">Forestry Tools</option>
-            <option value="summer">Summer Equipment</option>
+        <!-- Add Category -->
+        <h3>Lisää Kategoria</h3>
+        <input type="text" id="newCategoryName" placeholder="Kategorian nimi">
+        <select id="parentCategory">
+            <option value="">(Ei Yliluokkaa - Pääluokka)</option>
         </select>
-        
-        <button onclick="addProduct()">Add</button>
-        <ul id="productList"></ul>
+        <button onclick="addCategory()">Lisää Kategoria</button>
+
+        <!-- Add Product -->
+        <h3>Lisää Tuote</h3>
+        <input type="text" id="productName" placeholder="Tuotteen nimi">
+        <select id="productCategory">
+            <option value="">Valitse kategoria</option>
+        </select>
+        <button onclick="addProduct()">Lisää Tuote</button>
+
+        <button onclick="logout()">Kirjaudu Ulos</button>
     </section>
 
     <script src="script.js"></script>
+
+    <footer>
+        <p>&copy; 2025 Pyörätaikurit. All rights reserved.</p>
+        <nav>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </footer>
 </body>
 </html>
